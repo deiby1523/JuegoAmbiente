@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Separación de Residuos</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1 style="text-align: center">Separa la basura correctamente</h1>
+</div>
+<div class="layout">
+    <figures>
+        <img class="basura" style="touch-action: none;user-select: none" id="trash1" src="img/img1.png" alt="Desecho"
+             datatype="aprovechable">
+        <img class="basura" style="touch-action: none;user-select: none" id="trash2" src="img/img2.png" alt="Desecho"
+             datatype="aprovechable">
+        <img class="basura" style="touch-action: none;user-select: none" id="trash3" src="img/img3.png" alt="Desecho"
+             datatype="aprovechable">
+        <img class="basura" style="touch-action: none;user-select: none" id="trash4" src="img/img4.png" alt="Desecho"
+             datatype="organico">
+        <img class="basura" style="touch-action: none;user-select: none" id="trash5" src="img/img5.png" alt="Desecho"
+             datatype="organico">
+        <img class="basura" style="touch-action: none;user-select: none" id="trash6" src="img/img6.png" alt="Desecho"
+             datatype="aprovechable">
+        <img class="basura" style="touch-action: none;user-select: none" id="trash7" src="img/img7.png" alt="Desecho"
+             datatype="organico">
+        <img class="basura" style="touch-action: none;user-select: none" id="trash8" src="img/img8.png" alt="Desecho"
+             datatype="organico">
+        <img class="basura" style="touch-action: none;user-select: none" id="trash9" src="img/img9.png" alt="Desecho"
+             datatype="aprovechable">
+        <img class="basura" style="touch-action: none;user-select: none" id="trash10" src="img/img10.png" alt="Desecho"
+             datatype="noAprovechable">
+        <img class="basura" style="touch-action: none;user-select: none" id="trash11" src="img/img11.png" alt="Desecho"
+             datatype="aprovechable">
+        <img class="basura" style="touch-action: none;user-select: none" id="trash12" src="img/img12.png" alt="Desecho"
+             datatype="aprovechable">
+        <img class="basura" style="touch-action: none;user-select: none" id="trash13" src="img/img13.png" alt="Desecho"
+             datatype="aprovechable">
+        <img class="basura" style="touch-action: none;user-select: none" id="trash14" src="img/img14.png" alt="Desecho"
+             datatype="aprovechable">
+        <img class="basura" style="touch-action: none;user-select: none" id="trash15" src="img/img15.png" alt="Desecho"
+             datatype="organico">
+        <img class="basura" style="touch-action: none;user-select: none" id="trash16" src="img/img16.png" alt="Desecho"
+             datatype="noAprovechable">
+        <img class="basura" style="touch-action: none;user-select: none" id="trash17" src="img/img17.png" alt="Desecho"
+             datatype="aprovechable">
+        <img class="basura" style="touch-action: none;user-select: none" id="trash18" src="img/img18.png" alt="Desecho"
+             datatype="aprovechable">
+        <img class="basura" style="touch-action: none;user-select: none" id="trash19" src="img/img19.png" alt="Desecho"
+             datatype="noAprovechable">
+        <img class="basura" style="touch-action: none;user-select: none" id="trash20" src="img/img20.png" alt="Desecho"
+             datatype="aprovechable">
+    </figures>
+    <containers>
+        <div id="container">
+            <div class="row">
+                <div class="col">
+                    <div class="card bin" id="recycle-bin" datatype="aprovechable">Residuos Aprovechables</div>
+                </div>
+                <div class="col">
+                    <div class="card bin" id="organic-bin" datatype="organico">Residuos Organicos</div>
+
+                </div>
+                <div class="col">
+                    <div class="card bin" id="general-bin" datatype="noAprovechable">Residuos no Aprovechables</div>
+
+                </div>
+            </div>
+        </div>
+    </containers>
+</div>
+
+<div id="estado" style="position:absolute; bottom: 30%">
+    <h1 style="color:white">.</h1>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+<!--    <script src="script.js"></script>-->
+
+<script>
+    const position1 = {x: 0, y: 0}
+    const position2 = {x: 0, y: 0}
+    const position3 = {x: 0, y: 0}
+    const position4 = {x: 0, y: 0}
+    const position5 = {x: 0, y: 0}
+    const position6 = {x: 0, y: 0}
+    const position7 = {x: 0, y: 0}
+    const position8 = {x: 0, y: 0}
+    const position9 = {x: 0, y: 0}
+    const position10 = {x: 0, y: 0}
+    const position11 = {x: 0, y: 0}
+    const position12 = {x: 0, y: 0}
+    const position13 = {x: 0, y: 0}
+    const position14 = {x: 0, y: 0}
+    const position15 = {x: 0, y: 0}
+    const position16 = {x: 0, y: 0}
+    const position17 = {x: 0, y: 0}
+    const position18 = {x: 0, y: 0}
+    const position19 = {x: 0, y: 0}
+    const position20 = {x: 0, y: 0}
+
+    let left = 20;
+    let points = 0;
+    let score = 0;
+    let time = 0; // seconds
+
+    const cargarSonido = function (fuente) {
+        const sonido = document.createElement("audio");
+        sonido.src = fuente;
+        sonido.setAttribute("preload", "auto");
+        sonido.setAttribute("controls", "none");
+        sonido.style.display = "none"; // <-- oculto
+        document.body.appendChild(sonido);
+        return sonido;
+    };
+
+    // El sonido que podemos reproducir o pausar
+    const sonidoCorrecto = cargarSonido("sounds/correct.mp3");
+    const sonidoIncorrecto = cargarSonido("sounds/incorrect.mp3");
+
+
+    // Execute a function every 1 second
+    const intervalId = setInterval(() => {
+        console.log(++time);
+    }, 1000);
+
+    interact('#trash1').draggable({
+        listeners: {
+            start(event) {
+                console.log(event.type, event.target)
+            },
+            move(event) {
+                position1.x += event.dx
+                position1.y += event.dy
+
+                event.target.style.transform =
+                    `translate(${position1.x}px, ${position1.y}px)`
+            },
+        }
+    });
+
+    interact('#trash2').draggable({
+        listeners: {
+            start(event) {
+                console.log(event.type, event.target)
+            },
+            move(event) {
+                position2.x += event.dx
+                position2.y += event.dy
+
+                event.target.style.transform =
+                    `translate(${position2.x}px, ${position2.y}px)`
+            },
+        }
+    });
+
+    interact('#trash3').draggable({
+        listeners: {
+            start(event) {
+                console.log(event.type, event.target)
+            },
+            move(event) {
+                position3.x += event.dx
+                position3.y += event.dy
+
+                event.target.style.transform =
+                    `translate(${position3.x}px, ${position3.y}px)`
+            },
+        }
+    });
+
+    interact('#trash4').draggable({
+        listeners: {
+            start(event) {
+                console.log(event.type, event.target)
+            },
+            move(event) {
+                position4.x += event.dx
+                position4.y += event.dy
+
+                event.target.style.transform =
+                    `translate(${position4.x}px, ${position4.y}px)`
+            },
+        }
+    });
+
+    interact('#trash5').draggable({
+        listeners: {
+            start(event) {
+                console.log(event.type, event.target)
+            },
+            move(event) {
+                position5.x += event.dx
+                position5.y += event.dy
+
+                event.target.style.transform =
+                    `translate(${position5.x}px, ${position5.y}px)`
+            },
+        }
+    });
+
+    interact('#trash6').draggable({
+        listeners: {
+            start(event) {
+                console.log(event.type, event.target)
+            },
+            move(event) {
+                position6.x += event.dx
+                position6.y += event.dy
+
+                event.target.style.transform =
+                    `translate(${position6.x}px, ${position6.y}px)`
+            },
+        }
+    });
+
+
+    interact('#trash7').draggable({
+        listeners: {
+            start(event) {
+                console.log(event.type, event.target)
+            },
+            move(event) {
+                position7.x += event.dx
+                position7.y += event.dy
+
+                event.target.style.transform =
+                    `translate(${position7.x}px, ${position7.y}px)`
+            },
+        }
+    });
+
+    interact('#trash8').draggable({
+        listeners: {
+            start(event) {
+                console.log(event.type, event.target)
+            },
+            move(event) {
+                position8.x += event.dx
+                position8.y += event.dy
+
+                event.target.style.transform =
+                    `translate(${position8.x}px, ${position8.y}px)`
+            },
+        }
+    });
+
+    interact('#trash9').draggable({
+        listeners: {
+            start(event) {
+                console.log(event.type, event.target)
+            },
+            move(event) {
+                position9.x += event.dx
+                position9.y += event.dy
+
+                event.target.style.transform =
+                    `translate(${position9.x}px, ${position9.y}px)`
+            },
+        }
+    });
+
+    interact('#trash10').draggable({
+        listeners: {
+            start(event) {
+                console.log(event.type, event.target)
+            },
+            move(event) {
+                position10.x += event.dx
+                position10.y += event.dy
+
+                event.target.style.transform =
+                    `translate(${position10.x}px, ${position10.y}px)`
+            },
+        }
+    });
+
+    interact('#trash11').draggable({
+        listeners: {
+            start(event) {
+                console.log(event.type, event.target)
+            },
+            move(event) {
+                position11.x += event.dx
+                position11.y += event.dy
+
+                event.target.style.transform =
+                    `translate(${position11.x}px, ${position11.y}px)`
+            },
+        }
+    });
+
+    interact('#trash12').draggable({
+        listeners: {
+            start(event) {
+                console.log(event.type, event.target)
+            },
+            move(event) {
+                position12.x += event.dx
+                position12.y += event.dy
+
+                event.target.style.transform =
+                    `translate(${position12.x}px, ${position12.y}px)`
+            },
+        }
+    });
+
+    interact('#trash13').draggable({
+        listeners: {
+            start(event) {
+                console.log(event.type, event.target)
+            },
+            move(event) {
+                position13.x += event.dx
+                position13.y += event.dy
+
+                event.target.style.transform =
+                    `translate(${position13.x}px, ${position13.y}px)`
+            },
+        }
+    });
+
+    interact('#trash14').draggable({
+        listeners: {
+            start(event) {
+                console.log(event.type, event.target)
+            },
+            move(event) {
+                position14.x += event.dx
+                position14.y += event.dy
+
+                event.target.style.transform =
+                    `translate(${position14.x}px, ${position14.y}px)`
+            },
+        }
+    });
+
+    interact('#trash15').draggable({
+        listeners: {
+            start(event) {
+                console.log(event.type, event.target)
+            },
+            move(event) {
+                position15.x += event.dx
+                position15.y += event.dy
+
+                event.target.style.transform =
+                    `translate(${position15.x}px, ${position15.y}px)`
+            },
+        }
+    });
+
+    interact('#trash16').draggable({
+        listeners: {
+            start(event) {
+                console.log(event.type, event.target)
+            },
+            move(event) {
+                position16.x += event.dx
+                position16.y += event.dy
+
+                event.target.style.transform =
+                    `translate(${position16.x}px, ${position16.y}px)`
+            },
+        }
+    });
+
+    interact('#trash17').draggable({
+        listeners: {
+            start(event) {
+                console.log(event.type, event.target)
+            },
+            move(event) {
+                position17.x += event.dx
+                position17.y += event.dy
+
+                event.target.style.transform =
+                    `translate(${position17.x}px, ${position17.y}px)`
+            },
+        }
+    });
+
+    interact('#trash18').draggable({
+        listeners: {
+            start(event) {
+                console.log(event.type, event.target)
+            },
+            move(event) {
+                position18.x += event.dx
+                position18.y += event.dy
+
+                event.target.style.transform =
+                    `translate(${position18.x}px, ${position18.y}px)`
+            },
+        }
+    });
+
+    interact('#trash19').draggable({
+        listeners: {
+            start(event) {
+                console.log(event.type, event.target)
+            },
+            move(event) {
+                position19.x += event.dx
+                position19.y += event.dy
+
+                event.target.style.transform =
+                    `translate(${position19.x}px, ${position19.y}px)`
+            },
+        }
+    });
+
+    interact('#trash20').draggable({
+        listeners: {
+            start(event) {
+                console.log(event.type, event.target)
+            },
+            move(event) {
+                position20.x += event.dx
+                position20.y += event.dy
+
+                event.target.style.transform =
+                    `translate(${position20.x}px, ${position20.y}px)`
+            },
+        }
+    });
+
+    interact('#recycle-bin')
+        .dropzone({
+            ondrop: function (event) {
+                let variableEstado = document.getElementById("estado");
+                if (event.relatedTarget.getAttribute('datatype') === 'aprovechable') {
+                    sonidoCorrecto.play();
+                    points++;
+                    left--;
+                    variableEstado.style.color = 'green';
+                    variableEstado.innerHTML = "<h1>CORRECTO</h1>"
+                    if (left === 0) {
+                        variableEstado.style.color = 'black';
+                        variableEstado.innerHTML = "<h1>Juego Terminado</h1><br><h2>Aciertos:" + points + "</h2><br><h2>puntaje:" + (((((points / 20) * 5) / time) * 100000).toFixed(0)).toFixed(0) + "</h2>";
+                    }
+                } else {
+                    sonidoIncorrecto.play()
+                    left--;
+                    variableEstado.style.color = 'red';
+                    variableEstado.innerHTML = "<h1>INCORRECTO</h1>"
+                    if (left === 0) {
+                        variableEstado.style.color = 'black';
+                        variableEstado.innerHTML = "<h1>Juego Terminado</h1><br><h2>Aciertos:" + points + "</h2><br><h2>puntaje:" + ((((points / 20) * 5) / time) * 100000).toFixed(0) + "</h2>";
+                    }
+                }
+                event.relatedTarget.remove();
+                event.target.classList.remove('dropHere');
+                event.relatedTarget.classList.remove('can-drop');
+
+            },
+            ondragenter: function (event) {
+                var draggableElement = event.relatedTarget
+                var dropzoneElement = event.target
+
+                // feedback the possibility of a drop
+                dropzoneElement.classList.add('dropHere')
+                draggableElement.classList.add('can-drop')
+            },
+            ondragleave: function (event) {
+                // remove the drop feedback style
+                event.target.classList.remove('dropHere')
+                event.relatedTarget.classList.remove('can-drop')
+            },
+            ondropdeactivate: function (event) {
+                // remove active dropzone feedback
+                event.target.classList.remove('drop-active')
+                event.target.classList.remove('drop-target')
+            }
+        })
+        .on('bin', function (event) {
+            event.target.classList.add('dropHere')
+        });
+
+    interact('#organic-bin')
+        .dropzone({
+            ondrop: function (event) {
+                let variableEstado = document.getElementById("estado");
+                if (event.relatedTarget.getAttribute('datatype') === 'organico') {
+                    sonidoCorrecto.play();
+                    variableEstado.style.color = 'green';
+                    variableEstado.innerHTML = "<h1>CORRECTO</h1>"
+                    points++;
+                    left--;
+                    if (left === 0) {
+                        variableEstado.style.color = 'black';
+                        variableEstado.innerHTML = "<h1>Juego Terminado</h1><br><h2>Aciertos:" + points + "</h2><br><h2>puntaje:" + ((((points / 20) * 5) / time) * 100000).toFixed(0) + "</h2>";
+                    }
+                } else {
+                    sonidoIncorrecto.play();
+                    left--;
+                    variableEstado.style.color = 'red';
+                    variableEstado.innerHTML = "<h1>INCORRECTO</h1>"
+                    if (left === 0) {
+                        variableEstado.style.color = 'black';
+                        variableEstado.innerHTML = "<h1>Juego Terminado</h1><br><h2>Aciertos:" + points + "</h2><br><h2>puntaje:" + ((((points / 20) * 5) / time) * 100000).toFixed(0) + "</h2>";
+                    }
+                }
+                event.relatedTarget.remove();
+                event.target.classList.remove('dropHere');
+                event.relatedTarget.classList.remove('can-drop');
+            },
+            ondragenter: function (event) {
+                var draggableElement = event.relatedTarget
+                var dropzoneElement = event.target
+
+                // feedback the possibility of a drop
+                dropzoneElement.classList.add('dropHere')
+                draggableElement.classList.add('can-drop')
+            },
+            ondragleave: function (event) {
+                // remove the drop feedback style
+                event.target.classList.remove('dropHere')
+                event.relatedTarget.classList.remove('can-drop')
+            },
+            ondropdeactivate: function (event) {
+                // remove active dropzone feedback
+                event.target.classList.remove('drop-active')
+                event.target.classList.remove('drop-target')
+            }
+        })
+        .on('bin', function (event) {
+            event.target.classList.add('dropHere')
+        });
+
+    interact('#general-bin')
+        .dropzone({
+            ondrop: function (event) {
+                let variableEstado = document.getElementById("estado");
+                if (event.relatedTarget.getAttribute('datatype') === 'noAprovechable') {
+                    sonidoCorrecto.play();
+                    variableEstado.style.color = 'green';
+                    variableEstado.innerHTML = "<h1>CORRECTO</h1>"
+                    points++;
+                    left--;
+                    if (left === 0) {
+                        variableEstado.style.color = 'black';
+                        variableEstado.innerHTML = "<h1>Juego Terminado</h1><br><h2>Aciertos:" + points + "</h2><br><h2>puntaje:" + ((((points / 20) * 5) / time) * 100000).toFixed(0) + "</h2>";
+                    }
+                } else {
+                    sonidoIncorrecto.play();
+                    left--;
+                    variableEstado.style.color = 'red';
+                    variableEstado.innerHTML = "<h1>INCORRECTO</h1>";
+                    if (left === 0) {
+                        variableEstado.style.color = 'black';
+                        variableEstado.innerHTML = "<h1>Juego Terminado</h1><br><h2>Aciertos:" + points + "</h2><br><h2>puntaje:" + ((((points / 20) * 5) / time) * 100000).toFixed(0) + "</h2>";
+                    }
+                }
+                event.relatedTarget.remove();
+                event.target.classList.remove('dropHere');
+                event.relatedTarget.classList.remove('can-drop');
+            },
+            ondragenter: function (event) {
+                var draggableElement = event.relatedTarget
+                var dropzoneElement = event.target
+
+                // feedback the possibility of a drop
+                dropzoneElement.classList.add('dropHere');
+                draggableElement.classList.add('can-drop');
+            },
+            ondragleave: function (event) {
+                // remove the drop feedback style
+                event.target.classList.remove('dropHere');
+                event.relatedTarget.classList.remove('can-drop');
+            },
+            ondropdeactivate: function (event) {
+                // remove active dropzone feedback
+                event.target.classList.remove('drop-active');
+                event.target.classList.remove('drop-target');
+            }
+        })
+        .on('bin', function (event) {
+            event.target.classList.add('dropHere')
+        });
+</script>
+
+</body>
+</html>
